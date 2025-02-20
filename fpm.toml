@@ -1,0 +1,27 @@
+name = "fcat"
+version = "0.1.1"
+license = "license"
+author = "soonsimple"
+maintainer = "sun_chengbo@126.com"
+copyright = "Copyright 2025, soonsimple"
+description = "A Fortran port of the popular 'cat' command used to concatenate files to stdout"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+module-naming = false
+
+[install]
+library = false
+
+[fortran]
+implicit-typing = false
+implicit-external = false
+source-form = "free"
+
+[[executable]]
+name = "fcat"
+
+[executable.dependencies]
+M_CLI2.git = "https://github.com/urbanjost/M_CLI2"
