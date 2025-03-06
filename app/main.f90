@@ -3,7 +3,8 @@ program main
    use m_cli2, only: set_args, unnamed, sget, lget
    implicit none
 
-   integer, parameter :: length = 89
+   integer, parameter :: length = 84
+
    integer :: input, output, i
    integer :: line_num
    integer :: status = 0
@@ -40,13 +41,13 @@ program main
 
          line_num = 0
 
-         open (newunit=input, file=input_file, access="sequential", status="old")
+         open (newunit=input, file=input_file, encoding="UTF-8", access="sequential", status="old")
 
-         do while (.true.)  ! 读取文件内容
+         do while (.true.)  ! read the file contents
 
             read (input, fmt=thisfmt, iostat=status) buffer
 
-            if (status /= 0) exit  ! 没有数据就跳出循环
+            if (status /= 0) exit  ! out of loop if EOF
 
             if (lget("number")) then
                write (output, '(i3, a2) ', advance='no') line_num, "  "
